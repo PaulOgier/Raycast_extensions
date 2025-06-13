@@ -5,6 +5,9 @@
   "description": "Share sensitive data using a PrivateBin web service",
   "icon": "extension_icon.png",
   "author": "sedlacek-martin",
+  "contributors": [
+    "paul_ogier"
+  ],
   "categories": ["Data", "Developer Tools", "Security"],
   "license": "MIT",
   "commands": [
