@@ -61,9 +61,28 @@ export default function Command() {
         );
 
         let copyText = `${url.replace(/\/+$/, "")}/?${id}#${pasteKey}`;
+
+        // Create an array to hold the lines to be added
+        let lines = [];
+
+        // Check each value and add it to the lines array if it exists
         if (includePassword && values.password) {
-          copyText = `${copyText}\nPassword: ${values.password}`;
+          lines.push(`Password: ${values.password}`);
         }
+
+        if (values.expire) {
+          lines.push(`- This link will expire after ${values.expire}`);
+        }
+
+        if (values.burnAfterRead) {
+          lines.push(`- This link can only be accessed once, do not use back or refresh button in your browser.`);
+        }
+
+        // Join the lines with newline characters and append to copyText
+        if (lines.length > 0) {
+          copyText += `\n${lines.join('\n')}`;
+        }
+
 
         await Clipboard.copy(copyText);
 
