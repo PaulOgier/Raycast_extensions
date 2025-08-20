@@ -57,4 +57,9 @@ laravel-herd
 playtester
 model-context-protocol-registry
 clarify
+clipmate
+send-ai
+kaleidoscope
 exa
+v0-by-vercel
+pieces-raycast

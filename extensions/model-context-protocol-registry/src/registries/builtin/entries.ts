@@ -139,7 +139,7 @@ export const OFFICIAL_ENTRIES: RegistryEntry[] = [
     title: "Google Drive",
     description: "This MCP server integrates with Google Drive to allow listing, reading, and searching over files.",
     icon: "https://svgl.app/library/drive.svg",
-    homepage: "https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive",
+    homepage: "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/gdrive",
     configuration: {
       command: "npx",
       args: ["-y", "@modelcontextprotocol/server-gdrive"],
@@ -186,6 +186,34 @@ export const OFFICIAL_ENTRIES: RegistryEntry[] = [
       env: {
         KAGI_API_KEY: "YOUR_API_KEY_HERE",
         KAGI_SUMMARIZER_ENGINE: "YOUR_ENGINE_CHOICE_HERE", // Defaults to "cecil" engine if env var not present
+      },
+    },
+  },
+  {
+    name: "keboola",
+    title: "Keboola",
+    description:
+      "Keboola MCP Server is an open-source bridge between your Keboola project and modern AI tools. It turns Keboola features—like storage access, SQL transformations, and job triggers—into callable tools for Claude, Cursor, CrewAI, LangChain, Amazon Q, and more.",
+    icon: "keboola.svg",
+    homepage: "https://github.com/keboola/mcp-server",
+    configuration: {
+      command: "npx",
+      args: ["mcp-remote", "https://mcp.canary-orion.keboola.dev/sse"],
+    },
+  },
+  {
+    name: "keboola-local",
+    title: "Keboola (Local)",
+    description:
+      "Keboola MCP Server is an open-source bridge between your Keboola project and modern AI tools. It turns Keboola features—like storage access, SQL transformations, and job triggers—into callable tools for Claude, Cursor, CrewAI, LangChain, Amazon Q, and more. This is the local server version.",
+    icon: "keboola.svg",
+    homepage: "https://github.com/keboola/mcp-server",
+    configuration: {
+      command: "uvx",
+      args: ["keboola_mcp_server", "--api-url", "https://connection.YOUR_REGION.keboola.com"],
+      env: {
+        KBC_STORAGE_TOKEN: "your_keboola_storage_token",
+        KBC_WORKSPACE_SCHEMA: "your_workspace_schema",
       },
     },
   },
@@ -472,7 +500,7 @@ export const OFFICIAL_ENTRIES: RegistryEntry[] = [
       command: "npx",
       args: ["-y", "@apify/actors-mcp-server"],
       env: {
-        APIFY_API_TOKEN: "YOUR_API_TOKEN_HERE",
+        APIFY_TOKEN: "YOUR_API_TOKEN_HERE",
       },
     },
   },
@@ -531,6 +559,30 @@ export const OFFICIAL_ENTRIES: RegistryEntry[] = [
       env: {
         OPENAPI_MCP_HEADERS: '{"Authorization":"Bearer <YOUR_API_KEY>", "Anytype-Version":"2025-05-20"}',
       },
+    },
+  },
+  {
+    name: "gen-pdf",
+    title: "Gen-PDF",
+    description:
+      "MCP server to generate professional looking PDF. Perfect for creating reports, invoices, contracts, and more.",
+    icon: "https://gen-pdf.com/favicon.ico",
+    homepage: "https://gen-pdf.com",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://gen-pdf.com/mcp"],
+    },
+  },
+  {
+    name: "linear",
+    title: "Linear",
+    description:
+      "The Model Context Protocol (MCP) server provides a standardized interface that allows any compatible AI model or agent to access your Linear data in a simple and secure way. The Linear MCP server has tools available for finding, creating, and updating objects in Linear like issues, projects, and comments.",
+    icon: "https://svgl.app/library/linear.svg",
+    homepage: "https://linear.app/docs/mcp",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.linear.app/sse"],
     },
   },
 ];
